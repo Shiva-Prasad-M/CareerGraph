@@ -1,0 +1,1259 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  font-family: "Manrope", sans-serif;
+  color: #e8eee9;
+  background: #0b0f0d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(111, 255, 169, 0.08),
+      transparent 28%
+    ),
+    #0b0f0d;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+main {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 40px 0 80px;
+}
+
+.hero {
+  padding: 60px 0 48px;
+  max-width: 850px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6fffa9;
+}
+
+.hero h1 {
+  margin: 16px 0;
+  max-width: 800px;
+  font-size: clamp(42px, 7vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.hero p {
+  max-width: 650px;
+  color: #87928b;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.panel {
+  margin-top: 24px;
+  padding: 28px;
+  border: 1px solid #202822;
+  border-radius: 18px;
+  background: rgba(15, 21, 17, 0.88);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.18);
+}
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  margin: 8px 0 0;
+  font-size: 26px;
+  letter-spacing: -0.03em;
+}
+
+.selection-count {
+  color: #6fffa9;
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+}
+
+.primary-button {
+  margin-top: 24px;
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: #6fffa9;
+  color: #07100a;
+  font-weight: 800;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.primary-button:disabled {
+  opacity: 0.4;
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.error {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border: 1px solid #5d302f;
+  border-radius: 10px;
+  background: #211311;
+  color: #ff9d96;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 52px 24px;
+}
+
+.empty-state p {
+  max-width: 520px;
+  margin: 12px auto 0;
+  color: #87928b;
+  line-height: 1.7;
+}
+
+.graph-container {
+  height: 560px;
+  overflow: hidden;
+  border: 1px solid #202822;
+  border-radius: 14px;
+  background: #090d0b;
+}
+
+@media (max-width: 850px) {
+  main {
+    width: min(100% - 24px, 680px);
+  }
+
+  .hero {
+    padding-top: 36px;
+  }
+
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .graph-container {
+    height: 420px;
+  }
+}
+
+.topbar {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1c241f;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #6fffa9;
+  color: #07100a;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #87928b;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6fffa9;
+  box-shadow: 0 0 12px rgba(111, 255, 169, 0.7);
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    width: calc(100% - 24px);
+  }
+
+  .status {
+    font-size: 9px;
+  }
+}
+
+.role-card {
+  width: 100%;
+  padding: 22px;
+  text-align: left;
+  border: 1px solid #202822;
+  border-radius: 14px;
+  background: #101611;
+  color: #e8eee9;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.role-card:hover {
+  transform: translateY(-3px);
+  border-color: #405448;
+}
+
+.role-card.selected {
+  border-color: #6fffa9;
+  box-shadow: 0 0 0 1px rgba(111, 255, 169, 0.2);
+}
+
+.role-label {
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #6fffa9;
+}
+
+.role-card h3 {
+  margin: 18px 0 16px;
+  font-size: 20px;
+}
+
+.match-score {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.role-action {
+  display: block;
+  margin-top: 20px;
+  color: #87928b;
+  font-size: 13px;
+}
+.match-details {
+  margin-top: 6px;
+  color: #87928b;
+  font-size: 12px;
+}
+/* =========================================
+   GRAPH EXPLORER
+   ========================================= */
+
+.graph-explorer {
+  margin-top: 24px;
+  overflow: hidden;
+  border: 1px solid #202a24;
+  border-radius: 18px;
+  background: #090d0b;
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* Toolbar */
+
+.graph-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 58px;
+  padding: 0 18px;
+  border-bottom: 1px solid #202a24;
+  background: #0c110e;
+}
+
+.graph-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.graph-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #8d9a91;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+}
+
+.graph-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6fffa9;
+  box-shadow:
+    0 0 8px rgba(111, 255, 169, 0.7);
+}
+
+.graph-divider {
+  width: 1px;
+  height: 18px;
+  background: #27312b;
+}
+
+.graph-count {
+  color: #606c64;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+}
+
+/* Legend */
+
+.graph-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.graph-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #6d7971;
+  font-size: 10px;
+}
+
+.legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.legend-dot.skill {
+  background: #6fffa9;
+}
+
+.legend-dot.role {
+  background: #a6b4ff;
+}
+
+.legend-dot.company {
+  background: #f4c77a;
+}
+
+/* Canvas */
+
+.graph-canvas {
+  position: relative;
+  height: 570px;
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(111, 255, 169, 0.035),
+      transparent 38%
+    ),
+    #090d0b;
+}
+
+.react-flow {
+  background: transparent;
+}
+
+.react-flow__background {
+  background-color: transparent;
+}
+
+.react-flow__background pattern circle {
+  fill: #28332c;
+}
+
+/* Nodes */
+
+.graph-node {
+  min-width: 150px;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid #29352e !important;
+  border-radius: 12px !important;
+  background: #111813 !important;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  color: #050806 !important;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.graph-node:hover {
+  border-color: #4d6656 !important;
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.35),
+    0 0 25px rgba(111, 255, 169, 0.06);
+}
+
+.graph-node-content {
+  padding: 12px 15px;
+}
+
+.graph-node-type {
+  display: block;
+  margin-bottom: 6px;
+  color: #657168;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.graph-node strong {
+  display: block;
+  color: #f0f4f1;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+/* Node types */
+
+.skill-node {
+  border-left: 2px solid #6fffa9 !important;
+}
+
+.role-node {
+  border-left: 2px solid #a6b4ff !important;
+}
+
+.company-node {
+  border-left: 2px solid #f4c77a !important;
+}
+
+/* Edges */
+
+.graph-edge {
+  stroke: #425149;
+  stroke-width: 1.5;
+}
+
+.react-flow__edge-text {
+  fill: #657168;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+}
+
+.react-flow__edge-textbg {
+  fill: #090d0b;
+}
+
+/* Animated connection */
+
+.react-flow__edge.animated path {
+  stroke-dasharray: 5 5;
+  animation: graph-flow 1.5s linear infinite;
+}
+
+@keyframes graph-flow {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* Handles */
+
+.react-flow__handle {
+  width: 5px;
+  height: 5px;
+  border: 1px solid #111813;
+  background: #6fffa9;
+}
+
+/* Controls */
+
+.react-flow__controls {
+  overflow: hidden;
+  border: 1px solid #29352e;
+  border-radius: 10px;
+  background: #111813;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.react-flow__controls-button {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-bottom: 1px solid #29352e;
+  background: #111813;
+  color: #a4afa8;
+}
+
+.react-flow__controls-button:hover {
+  background: #19221c;
+  color: #6fffa9;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: 0;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor;
+}
+
+/* Mini map */
+
+.react-flow__minimap {
+  overflow: hidden;
+  right: 16px;
+  bottom: 16px;
+  border: 1px solid #29352e;
+  border-radius: 10px;
+  background: #0d130f;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.react-flow__minimap-mask {
+  fill: rgba(111, 255, 169, 0.06);
+}
+
+.react-flow__minimap-node {
+  fill: #334239;
+}
+
+/* Help */
+
+.graph-help {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: flex;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.graph-help span {
+  padding: 6px 8px;
+  border: 1px solid #202a24;
+  border-radius: 6px;
+  background: rgba(12, 17, 14, 0.85);
+  color: #56625a;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  backdrop-filter: blur(8px);
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .graph-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .graph-legend {
+    display: none;
+  }
+
+  .graph-canvas {
+    height: 480px;
+  }
+
+  .graph-node {
+    min-width: 125px;
+  }
+
+  .graph-node-content {
+    padding: 10px 12px;
+  }
+
+  .graph-node strong {
+    font-size: 11px;
+  }
+}
+/* =========================================
+   DEVELOPMENT PLAN
+   ========================================= */
+
+.development-plan {
+  margin-top: 28px;
+  padding: 34px;
+  border: 1px solid #202822;
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22, 31, 25, 0.96),
+      rgba(11, 16, 13, 0.98)
+    );
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+/* Header */
+
+.development-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #202822;
+}
+
+.development-header h2 {
+  margin: 8px 0 8px;
+  font-size: clamp(27px, 4vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.development-header p {
+  max-width: 560px;
+  margin: 0;
+  color: #7f8b83;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.plan-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid #29362e;
+  border-radius: 999px;
+  color: #8d9a91;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.plan-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6fffa9;
+  box-shadow: 0 0 10px rgba(111, 255, 169, 0.65);
+}
+
+/* Content */
+
+.plan-content {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 46px;
+  padding-top: 32px;
+}
+
+.gap-section,
+.learning-section {
+  min-width: 0;
+}
+
+/* Section heading */
+
+.subsection-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.subsection-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-number {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #2b3830;
+  border-radius: 8px;
+  color: #6fffa9;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+}
+
+.subsection-heading h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.item-count {
+  color: #68746c;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+}
+
+/* Skill cards */
+
+.skill-gap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.skill-gap-card {
+  position: relative;
+  min-height: 170px;
+  padding: 18px;
+  border: 1px solid #222d26;
+  border-radius: 14px;
+  background: #101611;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.skill-gap-card:hover {
+  transform: translateY(-3px);
+  border-color: #34473a;
+  background: #131a15;
+}
+
+.skill-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-icon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #29372e;
+  border-radius: 9px;
+  background: #0c120e;
+  color: #6fffa9;
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+}
+
+.skill-level {
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: #19231d;
+  color: #9aa69e;
+  font-size: 10px;
+}
+
+.skill-gap-card h4 {
+  margin: 20px 0 18px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.skill-progress {
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #263129;
+}
+
+.skill-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #6fffa9;
+}
+
+.skill-card-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  color: #68746c;
+  font-family: "DM Mono", monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Courses */
+
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.course-card {
+  display: grid;
+  grid-template-columns: 38px 1fr 32px;
+  align-items: center;
+  gap: 14px;
+  padding: 17px;
+  border: 1px solid #222d26;
+  border-radius: 13px;
+  background: #101611;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateX(3px);
+  border-color: #34473a;
+  background: #131a15;
+}
+
+.course-number {
+  color: #56635a;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+}
+
+.course-main {
+  min-width: 0;
+}
+
+.course-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+  color: #6fffa9;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.course-level {
+  padding-left: 8px;
+  border-left: 1px solid #344238;
+  color: #77837b;
+}
+
+.course-card h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.course-card p {
+  margin: 6px 0 0;
+  color: #6f7b73;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.course-arrow {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #29352e;
+  border-radius: 8px;
+  color: #77837b;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.course-card:hover .course-arrow {
+  border-color: #6fffa9;
+  color: #6fffa9;
+}
+
+/* Empty state */
+
+.plan-empty {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border: 1px dashed #29352e;
+  border-radius: 12px;
+  background: rgba(10, 15, 12, 0.45);
+}
+
+.empty-check {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #17231b;
+  color: #6fffa9;
+}
+
+.plan-empty strong {
+  display: block;
+  font-size: 13px;
+}
+
+.plan-empty p {
+  margin: 4px 0 0;
+  color: #6f7b73;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .plan-content {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+}
+
+@media (max-width: 600px) {
+  .development-plan {
+    padding: 22px;
+    border-radius: 16px;
+  }
+
+  .development-header {
+    flex-direction: column;
+    padding-bottom: 24px;
+  }
+
+  .skill-gap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card {
+    grid-template-columns: 30px 1fr 28px;
+    padding: 14px;
+  }
+}
+/* Selected / Skill node visibility */
+.graph-node.skill-node {
+  background: #050705 !important;
+  border: 1px solid #6fffa9 !important;
+  border-left: 3px solid #6fffa9 !important;
+  box-shadow:
+    0 0 0 1px rgba(111, 255, 169, 0.08),
+    0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.graph-node.skill-node .graph-node-content {
+  background: #050705 !important;
+}
+
+.graph-node.skill-node .graph-node-type {
+  color: #6fffa9 !important;
+}
+
+.graph-node.skill-node strong {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* Hover */
+.graph-node.skill-node:hover {
+  background: #000000 !important;
+  border-color: #8affbc !important;
+  box-shadow:
+    0 0 20px rgba(111, 255, 169, 0.12),
+    0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.graph-node.skill-node:hover .graph-node-content {
+  background: #000000 !important;
+}
+/* =========================================
+   React Flow node overrides
+   Keep this at the END of the CSS file
+   ========================================= */
+
+.graph-canvas .react-flow__node {
+  background: #050705 !important;
+  color: #ffffff !important;
+  border: 1px solid #29352e !important;
+  border-radius: 12px !important;
+}
+
+/* Selected skill */
+.graph-canvas .react-flow__node.skill-node {
+  background: #050705 !important;
+  color: #ffffff !important;
+  border: 1px solid #6fffa9 !important;
+  border-left: 3px solid #6fffa9 !important;
+}
+
+/* Role */
+.graph-canvas .react-flow__node.role-node {
+  background: #080a10 !important;
+  color: #ffffff !important;
+  border: 1px solid #a6b4ff !important;
+  border-left: 3px solid #a6b4ff !important;
+}
+
+/* Company */
+.graph-canvas .react-flow__node.company-node {
+  background: #0d0b06 !important;
+  color: #ffffff !important;
+  border: 1px solid #f4c77a !important;
+  border-left: 3px solid #f4c77a !important;
+}
+
+/* Content inside nodes */
+.graph-canvas .graph-node-content {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+
+.graph-canvas .graph-node strong {
+  color: #ffffff !important;
+}
+
+.graph-canvas .graph-node-type {
+  color: #6fffa9 !important;
+}
+/* =========================================
+   FINAL GRAPH NODE VISIBILITY FIX
+   ========================================= */
+
+.graph-canvas .react-flow__node.skill-node,
+.graph-canvas .react-flow__node.skill-node *,
+.graph-canvas .react-flow__node.role-node,
+.graph-canvas .react-flow__node.role-node *,
+.graph-canvas .react-flow__node.company-node,
+.graph-canvas .react-flow__node.company-node * {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  text-shadow: none !important;
+}
+
+/* Skill node */
+.graph-canvas .react-flow__node.skill-node {
+  background-color: #000000 !important;
+  border: 1px solid #6fffa9 !important;
+  border-left: 3px solid #6fffa9 !important;
+}
+
+/* Skill label */
+.graph-canvas .react-flow__node.skill-node .graph-node-type {
+  color: #6fffa9 !important;
+  opacity: 1 !important;
+}
+
+.graph-canvas .react-flow__node.skill-node strong {
+  display: block !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  font-weight: 700 !important;
+}
+
+/* Role node */
+.graph-canvas .react-flow__node.role-node {
+  background-color: #000000 !important;
+  border: 1px solid #a6b4ff !important;
+}
+
+.graph-canvas .react-flow__node.role-node strong {
+  color: #ffffff !important;
+}
+
+/* Company node */
+.graph-canvas .react-flow__node.company-node {
+  background-color: #000000 !important;
+  border: 1px solid #f4c77a !important;
+}
+
+.graph-canvas .react-flow__node.company-node strong {
+  color: #ffffff !important;
+}
+/* CareerGraph graph nodes */
+
+.graph-container .react-flow__node.career-node {
+  background: #050705 !important;
+  color: #ffffff !important;
+  border-radius: 12px !important;
+  padding: 12px 18px !important;
+  min-width: 130px !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  border: 1px solid #29352e !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Selected skill - Docker */
+.graph-container .react-flow__node.skill-node {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #6fffa9 !important;
+  border-left: 4px solid #6fffa9 !important;
+}
+
+/* Related skill */
+.graph-container .react-flow__node.related-node {
+  background: #0b1015 !important;
+  color: #ffffff !important;
+  border: 1px solid #6ca8ff !important;
+}
+
+/* Role */
+.graph-container .react-flow__node.role-node {
+  background: #0b0c16 !important;
+  color: #ffffff !important;
+  border: 1px solid #a6b4ff !important;
+}
+
+/* Company */
+.graph-container .react-flow__node.company-node {
+  background: #110d07 !important;
+  color: #ffffff !important;
+  border: 1px solid #f4c77a !important;
+}
+
+/* Make sure React Flow does not make text faint */
+.graph-container .react-flow__node.career-node {
+  opacity: 1 !important;
+}
+
+/* Hover */
+.graph-container .react-flow__node.career-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5) !important;
+}/* CareerGraph graph nodes */
+
+.graph-container .react-flow__node.career-node {
+  background: #050705 !important;
+  color: #ffffff !important;
+  border-radius: 12px !important;
+  padding: 12px 18px !important;
+  min-width: 130px !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  border: 1px solid #29352e !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Selected skill - Docker */
+.graph-container .react-flow__node.skill-node {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border: 1px solid #6fffa9 !important;
+  border-left: 4px solid #6fffa9 !important;
+}
+
+/* Related skill */
+.graph-container .react-flow__node.related-node {
+  background: #0b1015 !important;
+  color: #ffffff !important;
+  border: 1px solid #6ca8ff !important;
+}
+
+/* Role */
+.graph-container .react-flow__node.role-node {
+  background: #0b0c16 !important;
+  color: #ffffff !important;
+  border: 1px solid #a6b4ff !important;
+}
+
+/* Company */
+.graph-container .react-flow__node.company-node {
+  background: #110d07 !important;
+  color: #ffffff !important;
+  border: 1px solid #f4c77a !important;
+}
+
+/* Make sure React Flow does not make text faint */
+.graph-container .react-flow__node.career-node {
+  opacity: 1 !important;
+}
+
+/* Hover */
+.graph-container .react-flow__node.career-node:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5) !important;
+}
