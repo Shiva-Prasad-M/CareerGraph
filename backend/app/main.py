@@ -7,13 +7,11 @@ from app.routes.roles import router as roles_router
 from app.routes.companies import router as companies_router
 from app.routes.graph import router as graph_router
 
-
 app = FastAPI(
     title="CareerGraph API",
     description="Graph-powered career exploration platform",
     version="1.0.0"
 )
-
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,11 +20,11 @@ app.add_middleware(
         "http://localhost:5173",
         "http://localhost:4173",
     ],
+    allow_origin_regex=r"https://career-graph-[a-z0-9-]+\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 app.include_router(health_router)
 app.include_router(skills_router)
