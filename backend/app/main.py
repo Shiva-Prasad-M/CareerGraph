@@ -14,17 +14,19 @@ app = FastAPI(
     version="1.0.0"
 )
 
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://career-graph-tau.vercel.app",
         "http://localhost:5173",
         "http://localhost:4173",
-        "https://career-graph-pmrwiuo65-medashivaprasad123-gmailcoms-projects.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.include_router(health_router)
 app.include_router(skills_router)
